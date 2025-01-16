@@ -44,14 +44,14 @@ const LogIn = () => {
                 <div className='py-1 font-poppins'>
                     Username
                 </div>
-                <input ref={usernameRef} type="text" className='w-full rounded-md h-7 p-1 outline-none text-sm bg-gray-100'/>
+                <input placeholder='Enter your username' ref={usernameRef} type="text" className='w-full font-poppins rounded-md h-7 p-1 outline-none text-sm bg-gray-100'/>
             </div>
             <div className='my-8'>
                 <div className='py-1 font-poppins'>
                     Password
                 </div>
                 <div className='flex '>
-                <input ref={passwordRef} type={seePassword?"text":"password"} className='w-[90%] rounded-md h-7 p-1 outline-none text-sm bg-gray-100'/>
+                <input placeholder='Enter your password' ref={passwordRef} type={seePassword?"text":"password"} className='font-poppins w-[90%] rounded-md h-7 p-1 outline-none text-sm bg-gray-100'/>
                 <div onClick={()=>{
                     setSeePassword(!seePassword)
                 }} className='flex items-center justify-end w-[10%] cursor-pointer'>
