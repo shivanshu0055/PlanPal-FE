@@ -20,7 +20,7 @@ const AddTodo = () => {
             return
         }
         try{
-            const res=await axios.post("http://localhost:3000/user/addTodo",{
+            const res=await axios.post("https://plan-pal-be.vercel.app/user/addTodo",{
                 title,
                 urgency,
                 description:currentTab,

@@ -17,7 +17,7 @@ const LogIn = () => {
                 alert("Please fill up all entries")
                 return
             }
-            const res=await axios.post("http://localhost:3000/user/signin",{
+            const res=await axios.post("https://plan-pal-be.vercel.app/user/signin",{
                 username:usernameRef.current.value,
                 password:passwordRef.current.value
             })
