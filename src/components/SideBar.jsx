@@ -19,7 +19,7 @@ function SideBar() {
 
     return (
         <>
-            <div className={`p-2 bg-yellow-500 w-fit cursor-pointer fixed z-10 md:hidden top-[2%] left-[2%] rounded-lg ${sideBarOpen?"translate-x-52":"translate-x-0"}`} onClick={()=>setSideBarOpen(!sideBarOpen)}><IoMdMenu className='h-5 w-5'/></div>
+            <div className={`p-2 bg-yellow-500 w-fit cursor-pointer fixed z-10 md:hidden top-[2%] left-[2%] rounded-lg ${sideBarOpen?"translate-x-56":"translate-x-0"}`} onClick={()=>setSideBarOpen(!sideBarOpen)}><IoMdMenu className='h-5 w-5'/></div>
             <div className={`p-2 min-w-56 h-screen rounded-r-xl fixed left-0 top-0 md:w-[18%] bg-yellow-500 ${sideBarOpen?"translate-x-0":"-translate-x-full"} md:translate-x-0 duration-200 ease-in-out`}>
                 <div>
                 <div className='text-4xl font-medium mb-10 mt-3 pl-5 flex items-center gap-2'>
