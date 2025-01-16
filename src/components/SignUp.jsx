@@ -55,6 +55,9 @@ const SignUp = () => {
             <div onClick={signUpFunction} className='font-poppins my-8 w-fit bg-black-500 text-xl px-5 py-1 text-yellow-500 rounded-md cursor-pointer'>
                 SignUp
             </div>
+            <div className='text-sm'>
+                Already a user? <span className='font-medium underline cursor-pointer' onClick={()=>{navigate("/login")}}>LogIn</span>
+            </div>
         </div>
         </div>
         <div className=' h-screen w-[55%] gradientBG relative hidden md:block '>
