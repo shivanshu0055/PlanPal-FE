@@ -6,7 +6,7 @@ export const userDetail=atomFamily({
     default:selectorFamily({
         key:"userDetailSelectorFam",
         get:(id)=>async ()=>{
-            const res=await axios.get("http://localhost:3000/user/getUserInfo",{
+            const res=await axios.get("https://plan-pal-be.vercel.app/user/getUserInfo",{
                 headers:{
                     token:id
                 }
@@ -21,7 +21,7 @@ export const allTodos=atomFamily({
     default:selectorFamily({
         key:"allTodoSelectorFamily",
         get:(id)=> async()=> {
-            const res=await axios.get("http://localhost:3000/user/getTodo",{
+            const res=await axios.get("https://plan-pal-be.vercel.app/user/getTodo",{
                 headers:{
                     token:id
                 }
