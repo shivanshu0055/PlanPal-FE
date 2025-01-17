@@ -43,10 +43,12 @@ const LandingPage = () => {
       ease: "power2.inOut",
     });
     gsap.from(ref6.current, {
-      y: 20,
-      duration: 0.88,
-      opacity: 0,
-    });
+      y: 25,
+      yoyo: true,
+      duration: 1.5,
+      repeat:-1
+    }); 
+    
   }, []);
 
   const navigate = useNavigate();
@@ -127,7 +129,7 @@ const LandingPage = () => {
         className="bg-yellow-500 sm:w-20 sm:h-20 h-16 w-16 absolute rounded-full sm:top-[50%] sm:left-[78%] blur-md top-[50%] left-[10%] sm:block"
       ></div>
       {/* Lower Section */}
-      <div className="w-full mt-44 mb-14">
+      <div ref={ref6} className="w-full mt-44 mb-14">
         <img
           src="./image.png"
           className="w-[80%] aspect-h-9 aspect-w-16 object-fill rounded-2xl mx-auto relative bottom-10 border-8 border-yellow-500"
