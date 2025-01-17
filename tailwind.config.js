@@ -20,9 +20,6 @@ export default {
         green:{
           500:"#acfc0a"
         },
-        white:{
-          500:"#f6fff0"
-        }
       },
       fontFamily:{
         poppins:['Poppins','sans-serif'],

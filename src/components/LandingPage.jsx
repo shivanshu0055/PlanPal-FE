@@ -53,11 +53,11 @@ const LandingPage = () => {
 
   const navigate = useNavigate();
   return (
-    <div className="w-full font-poppins text-white-500">
+    <div className="w-full font-poppins text-white">
       {/* NavBar */}
       <div className="w-[90%] flex justify-between py-4 m-auto items-center">
-        <div className="text-3xl font-semibold tracking-wide sm:text-4xl w-fit">
-          PlanPal
+        <div className="text-3xl font-semibold tracking-wide sm:text-4xl ">
+          PlanPal  
         </div>
         <div className="flex gap-6 ">
           <div
@@ -84,7 +84,7 @@ const LandingPage = () => {
         </div>
         <div
           ref={ref6}
-          className="herobackground  text-center pt-5 font-medium text-4xl sm:text-8xl font-poppins"
+          className="herobackground text-center pt-5 font-medium text-4xl sm:text-8xl font-poppins w-fit mx-auto" 
         >
           {" "}
           PlanPal.

@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { allTodos, filteredTodos, selectedTab } from "../atoms";
 import axios from "axios";
+import gsap from "gsap";
 
 const AddTodo = () => {
   const titleRef = useRef();
@@ -9,7 +10,7 @@ const AddTodo = () => {
   const dateRef = useRef();
   const [currentTab, setCurrentTab] = useRecoilState(selectedTab);
   const setAllTodo = useSetRecoilState(allTodos(localStorage.getItem("token")));
-
+    const ref1=useRef()
   async function addNewTodo() {
     const title = titleRef.current.value;
     const urgency = priorityRef.current.value;
@@ -19,7 +20,16 @@ const AddTodo = () => {
       alert("Please fill every field ...");
       return;
     }
+    
     try {
+        const animate=gsap.to(ref1.current,{
+            scale:0.98,
+            duration:0.1,
+            onComplete:()=>{
+                animate.reverse()
+            }
+          })
+          
       const res = await axios.post(
         "https://plan-pal-be.vercel.app/user/addTodo",
         {
@@ -37,6 +47,7 @@ const AddTodo = () => {
       titleRef.current.value = "";
       dateRef.current.value = "";
       setAllTodo((prev) => [...prev, res.data.newTodo]);
+      
     } catch (error) {}
   }
   return (
@@ -63,6 +74,7 @@ const AddTodo = () => {
           className="rounded-md w-[20%] px-1"
         />
         <div
+          ref={ref1}
           onClick={addNewTodo}
           className="w-[78%] cursor-pointer text-center bg-yellow-500 rounded-md p-1"
         >

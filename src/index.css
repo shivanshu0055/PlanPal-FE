@@ -21,27 +21,12 @@ body {
 .herobackground {
   background: hsla(208, 67%, 81%, 1);
 
-  background: linear-gradient(
-    90deg,
-    hsla(208, 67%, 81%, 1) 0%,
-    hsla(37, 65%, 85%, 1) 50%,
-    hsla(301, 65%, 83%, 1) 100%
-  );
-
-  background: -moz-linear-gradient(
-    90deg,
-    hsla(208, 67%, 81%, 1) 0%,
-    hsla(37, 65%, 85%, 1) 50%,
-    hsla(301, 65%, 83%, 1) 100%
-  );
-
-  background: -webkit-linear-gradient(
-    90deg,
-    hsla(208, 67%, 81%, 1) 0%,
-    hsla(37, 65%, 85%, 1) 50%,
-    hsla(301, 65%, 83%, 1) 100%
-  );
-
+  background: linear-gradient(90deg, hsla(208, 67%, 81%, 1) 0%, hsla(37, 65%, 85%, 1) 50%, hsla(301, 65%, 83%, 1) 100%);
+  
+  background: -moz-linear-gradient(90deg, hsla(208, 67%, 81%, 1) 0%, hsla(37, 65%, 85%, 1) 50%, hsla(301, 65%, 83%, 1) 100%);
+  
+  background: -webkit-linear-gradient(90deg, hsla(208, 67%, 81%, 1) 0%, hsla(37, 65%, 85%, 1) 50%, hsla(301, 65%, 83%, 1) 100%);
+  
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#AED1EF", endColorstr="#F2DFC1", GradientType=1 );
   background-clip: text;
   color: transparent;
