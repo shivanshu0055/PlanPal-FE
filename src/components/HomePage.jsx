@@ -27,7 +27,7 @@ const HomePage = () => {
       <div className="pt-20 ml-[20%] text-white text-xl pb-12 md:ml-[35%]">
         <div>
           Heyy, <span className="text-yellow-500">{username}</span>
-          <span className="text-3xl pl-1">🥳</span>
+          <span className="text-4xl pl-1">😶‍🌫️</span>
         </div>
         <div className="mt-2 font-thin ">Today - {getTodayDateString()}</div>
       </div>
