@@ -107,7 +107,7 @@ const TodoCard = ({ objectId, text, urgency, dueDate, doneOrNot }) => {
               <MdOutlineDone className="bg-yellow-500 text-black-500" />
             )}
           </div>
-          <div className={`${doneOrNot ? "line-through text-gray-400" : ""}`}>
+          <div className={`${doneOrNot ? "line-through text-gray-400" : ""} font-semibold`}>
             {text}
           </div>
         </div>
@@ -116,7 +116,7 @@ const TodoCard = ({ objectId, text, urgency, dueDate, doneOrNot }) => {
         </div>
       </div>
       <div className="mt-4 flex justify-between">
-        <div className="text-sm">
+        <div className="text-sm font-light">
           Urgency: <span className={colorMapping[urgency]}> {urgency} </span>
         </div>
         <div className="flex gap-1 items-center text-gray-300">
