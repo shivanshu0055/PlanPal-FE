@@ -51,10 +51,10 @@ const LandingPage = () => {
     },[])
 
     const navigate=useNavigate()
-  return (<div className='w-full font-poppins text-white '>
+  return (<div className='w-full font-poppins text-white-500'>
     {/* NavBar */}
     <div className='w-[90%] flex justify-between py-4 m-auto items-center'>  
-      <div className='text-3xl font-semibold tracking-wide sm:text-4xl'>
+      <div className='text-3xl font-semibold tracking-wide sm:text-4xl w-fit'>
         PlanPal
       </div>
       <div className='flex gap-6 '>

@@ -13,6 +13,15 @@ export default {
         },
         yellow:{
           500:"#fcf86f"
+        },
+        blue:{
+          500:"#023bc9",
+        },
+        green:{
+          500:"#acfc0a"
+        },
+        white:{
+          500:"#f6fff0"
         }
       },
       fontFamily:{
