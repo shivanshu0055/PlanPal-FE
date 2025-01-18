@@ -41,6 +41,16 @@ export const filteredTodos=selectorFamily({
     get:(id)=>({get})=>{
         const allTodo=get(allTodos(id))
         const currentTab=get(selectedTab)
-        return allTodo.filter(todo=>todo.description===currentTab)    
+        return allTodo.filter(todo=>todo.description===currentTab && todo.doneOrNot==false)    
+    }
+})
+
+
+export const doneTodos=selectorFamily({
+    key:"filteredTodos",
+    get:(id)=>({get})=>{
+        const allTodo=get(allTodos(id))
+        const currentTab=get(selectedTab)
+        return allTodo.filter(todo=>todo.description===currentTab && todo.doneOrNot==true)    
     }
 })

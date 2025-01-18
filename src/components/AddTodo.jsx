@@ -46,7 +46,7 @@ const AddTodo = () => {
       );
       titleRef.current.value = "";
       dateRef.current.value = "";
-      setAllTodo((prev) => [...prev, res.data.newTodo]);
+      setAllTodo((prev) => [res.data.newTodo,...prev]);
       
     } catch (error) {}
   }

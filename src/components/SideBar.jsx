@@ -29,7 +29,7 @@ function SideBar() {
       <div
         className={`p-2 min-w-56 h-screen rounded-r-xl fixed left-0 top-0 md:w-[18%] bg-yellow-500 ${
           sideBarOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 duration-200 ease-in-out absolute z-10`}
+        } md:translate-x-0 duration-200 ease-in-out fixed z-10`}
       >
         <div>
           <div className="text-4xl font-medium mb-10 mt-3 pl-5 flex items-center gap-2">

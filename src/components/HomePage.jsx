@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SideBar from "./SideBar";
 import TodoCard from "./TodoCard";
 import { useRecoilValue } from "recoil";
-import { allTodos, filteredTodos, userDetail } from "../atoms";
+import { allTodos, doneTodos, filteredTodos, userDetail } from "../atoms";
 import AddTodo from "./AddTodo";
 
 function getTodayDateString() {
@@ -19,6 +19,7 @@ const HomePage = () => {
   const token = localStorage.getItem("token");
   const username = useRecoilValue(userDetail(token));
   const currentTabTodos = useRecoilValue(filteredTodos(token));
+  const currentTabDoneTodos = useRecoilValue(doneTodos(token));
 
   return (
     <div className="min-h-screen w-full bg-black-500 font-poppins">
@@ -34,6 +35,16 @@ const HomePage = () => {
       <AddTodo></AddTodo>
       <div className="py-6">
         {currentTabTodos.map((todo, index) => (
+          <TodoCard
+            objectId={todo._id}
+            doneOrNot={todo.doneOrNot}
+            key={index}
+            text={todo.title}
+            urgency={todo.urgency}
+            dueDate={todo.dueDate}
+          ></TodoCard>
+        ))}
+        {currentTabDoneTodos.map((todo, index) => (
           <TodoCard
             objectId={todo._id}
             doneOrNot={todo.doneOrNot}
