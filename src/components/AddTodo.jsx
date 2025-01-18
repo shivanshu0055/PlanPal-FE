@@ -1,8 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { allTodos, filteredTodos, selectedTab } from "../atoms";
 import axios from "axios";
 import gsap from "gsap";
+import Loader from "./Loader";
 
 const AddTodo = () => {
   const titleRef = useRef();
@@ -10,7 +11,9 @@ const AddTodo = () => {
   const dateRef = useRef();
   const [currentTab, setCurrentTab] = useRecoilState(selectedTab);
   const setAllTodo = useSetRecoilState(allTodos(localStorage.getItem("token")));
-    const ref1=useRef()
+  const ref1=useRef()
+  const [isLoading,setIsLoading]=useState(false)
+
   async function addNewTodo() {
     const title = titleRef.current.value;
     const urgency = priorityRef.current.value;
@@ -22,6 +25,7 @@ const AddTodo = () => {
     }
     
     try {
+      setIsLoading(true)
         const animate=gsap.to(ref1.current,{
             scale:0.98,
             duration:0.1,
@@ -47,8 +51,10 @@ const AddTodo = () => {
       titleRef.current.value = "";
       dateRef.current.value = "";
       setAllTodo((prev) => [res.data.newTodo,...prev]);
-      
-    } catch (error) {}
+      setIsLoading(false)
+    } catch (error) {
+      setIsLoading(false)
+    }
   }
   return (
     <div className="w-[85%] mx-auto md:ml-[35%] md:w-[50%]">
@@ -76,9 +82,10 @@ const AddTodo = () => {
         <div
           ref={ref1}
           onClick={addNewTodo}
-          className="w-[78%] cursor-pointer text-center bg-yellow-500 rounded-md p-1"
+          className="w-[78%] flex justify-center gap-3 cursor-pointer text-center bg-yellow-500 rounded-md p-1"
         >
-          Add New
+          <span>Add New</span>
+          <Loader isLoading={isLoading}/>
         </div>
       </div>
     </div>

@@ -2,11 +2,13 @@ import React, { useRef, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
+import Loader from "./Loader";
 const SignUp = () => {
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
   const [seePassword, setSeePassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   async function signUpFunction() {
     try {
       if (
@@ -16,6 +18,7 @@ const SignUp = () => {
         alert("Please fill up all entries");
         return;
       }
+      setIsLoading(true);
       const res = await axios.post(
         "https://plan-pal-be.vercel.app/user/signup",
         {
@@ -24,8 +27,10 @@ const SignUp = () => {
         }
       );
       navigate("/login");
+      setIsLoading(false);
     } catch (error) {
       alert("User already exists");
+      setIsLoading(false);
     }
   }
 
@@ -68,9 +73,10 @@ const SignUp = () => {
           </div>
           <div
             onClick={signUpFunction}
-            className="font-poppins my-8 w-fit bg-black-500 text-xl px-5 py-1 text-yellow-500 rounded-md cursor-pointer"
+            className="font-poppins flex gap-3 items-center my-8 w-fit bg-black-500 text-xl px-5 py-1 text-yellow-500 rounded-md cursor-pointer"
           >
-            SignUp
+            <span className="">SignUp</span>
+            <Loader isLoading={isLoading} />
           </div>
           <div className="text-sm">
             Already a user?{" "}

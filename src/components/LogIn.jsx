@@ -3,11 +3,14 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
+import Loader from "./Loader";
+
 const LogIn = () => {
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
   const [seePassword, setSeePassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function logInFunction() {
     try {
@@ -18,6 +21,7 @@ const LogIn = () => {
         alert("Please fill up all entries");
         return;
       }
+      setIsLoading(true);
       const res = await axios.post(
         "https://plan-pal-be.vercel.app/user/signin",
         {
@@ -25,10 +29,12 @@ const LogIn = () => {
           password: passwordRef.current.value,
         }
       );
+      setIsLoading(false);
       const token = res.data.Token;
       localStorage.setItem("token", token);
       navigate("/home");
     } catch (error) {
+      setIsLoading(false);
       if (error.status == 404) {
         alert("You are not signed up");
       }
@@ -77,9 +83,10 @@ const LogIn = () => {
           </div>
           <div
             onClick={logInFunction}
-            className="font-poppins my-8 w-fit bg-black-500 text-xl px-5 py-1 text-yellow-500 rounded-md cursor-pointer"
+            className="font-poppins flex gap-3 items-center my-8 w-fit bg-black-500 text-xl px-5 py-1 text-yellow-500 rounded-md cursor-pointer"
           >
-            LogIn
+            <span className="">LogIn</span>
+            <Loader isLoading={isLoading} />
           </div>
         </div>
       </div>
